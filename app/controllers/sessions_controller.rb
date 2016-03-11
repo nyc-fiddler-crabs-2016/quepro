@@ -4,10 +4,10 @@ get '/login' do
 end
 
 post '/login' do
-  @user = User.find_by(user_name: params[:user][:user_name])
-  if @user && @user.password == params[:user][:password]
+  @user = User.find_by(params[:user])
+  if @user && @user.authenticate(params[:password][:password_digest])
     session[:user_id] = @user.id
-    redirect "/things" #pay attention to me !
+    redirect "/posts"
   else
     @user = User.new(params[:user])
     @errors = ["Either the name or password was incorrect."]
@@ -17,5 +17,5 @@ end
 
 get '/logout' do
   session.clear
-  redirect '/'
+  redirect '/posts'
 end
