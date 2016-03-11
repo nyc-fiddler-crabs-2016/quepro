@@ -1,0 +1,16 @@
+<% if @errors %>
+  <ul>
+    <% @errors.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end  %>
+
+<h1>Please login to continue</h1>
+<form action="/login" method="POST">
+  <label for="user-name">User_name:</label>
+  <input type="text" name="user[user_name]" id="user-name" value="<%= @user.user_name %>">
+  <label for="user-password">Password:</label>
+  <input type="password" name="user[password]" id="user-password">
+  <input type="submit" value="Login">
+</form>
