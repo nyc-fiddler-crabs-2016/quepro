@@ -9,7 +9,7 @@ end
 
 
 post '/surveys' do
-  @survey = Survey.new(title: params[:title], user_id: current_user.id)
+  @survey = Survey.new(params[:survey], user_id: current_user.id)
 
     if @survey.save
       if request.xhr?
@@ -23,7 +23,7 @@ post '/surveys' do
 end
 
 
-get '/surveys/:id'
+get '/surveys/:id' do
   @survey = Survey.find_by(id: params[:id])
   erb :'surveys/show'
 end
