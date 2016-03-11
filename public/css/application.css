@@ -27,6 +27,14 @@ main {
 
 section {
   background-color: #FFF8E7;
-  height: 50px;
+  margin-bottom: 20px;
+  padding: 10px;
 
+}
+
+section a {
+  font-family: Helvetica;
+  font-size: 1.3em;
+  text-decoration: none;
+  color: #7F7C73;
 }

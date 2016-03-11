@@ -1,5 +1,5 @@
 user_amount           = 6
-survey_amount         = 10
+survey_amount         = 40
 questions_per_survey  = 5
 
 surveys_taken_amount  = 20
