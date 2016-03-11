@@ -20,8 +20,7 @@ post '/users' do
 end
 
 get '/users/:user_id' do
-  # @user = current_user
-  # @entries = @user.entries
+  @user = User.find(params[:user_id])
   if logged_in?
     erb :'users/show'
   else

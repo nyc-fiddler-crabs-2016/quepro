@@ -1,0 +1,7 @@
+<h1><%= @user.user_name %></h1>
+
+<h3>Surveys Created</h3>
+
+<% @user.surveys.each do |survey| %>
+  <%= erb :'surveys/_survey_profile_item', locals: {survey: survey} %>
+<% end %>
