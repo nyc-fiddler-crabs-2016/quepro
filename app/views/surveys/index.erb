@@ -1,0 +1,6 @@
+<section>
+  <h1>Surveys</h1>
+  <% @surveys.each do |survey| %>
+    <%= erb :'surveys/_survey_index_item', locals: {survey: survey} %>
+  <% end %>
+</section>

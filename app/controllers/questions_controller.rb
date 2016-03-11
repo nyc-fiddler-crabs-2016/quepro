@@ -14,7 +14,7 @@ post '/questions' do
     else
       erb :"surveys/new"
     end
-  end
 end
+
 
 
