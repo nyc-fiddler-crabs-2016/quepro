@@ -18,3 +18,15 @@
   background-color: #F2F2F2;
   border-radius: 12px;
 }
+
+
+main {
+  width: 900px;
+  margin: 50px auto;
+}
+
+section {
+  background-color: #FFF8E7;
+  height: 50px;
+
+}
