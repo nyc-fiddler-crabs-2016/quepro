@@ -1,3 +1,3 @@
 get '/' do
-  redirect '/things'  #look at me !
+  redirect '/surveys'  #look at me !
 end
