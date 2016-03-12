@@ -4,4 +4,9 @@ class Choice < ActiveRecord::Base
   has_many :responses
 
   validates :name, :question, presence: true
+
+  def my_question
+    self.question.id
+  end
 end
+
