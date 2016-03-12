@@ -1,3 +1,5 @@
 <section>
-  <h3><%= survey.title %> </h3>
+  <a href="/surveys/<%= survey.id %>" ><%= survey.title %></a>
+  <p>
+  <a href="/users/<%= survey.user.id %> "><%= survey.user.user_name %> </a> | <%= survey.user.id %></p>
 </section>

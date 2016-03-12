@@ -21,7 +21,8 @@
     <% if logged_in? %>
         <ul>
           <!--<li><a href="/users/< current_user.id %>">Profile</a></li> -->
-          <li class="name"><a href="/users/:id"><%= current_user.user_name %></a></li>
+          <li class="name"><a href="/">HOME</a></li>
+          <li class="name"><a href="/users/<%= current_user.id %>"><%= current_user.user_name %></a></li>
           <li><a class="btn" href="/logout">Logout</a></li>
         </ul>
       <% else %>
