@@ -2,8 +2,10 @@
 <% @survey.questions.each do |question| %>
   <h4> <%= question.name %> </h4>
   <ul>
+    <form>
     <% question.choices.each do |choice| %>
-      <li><%= choice.name %></li>
+    <li><input type = "radio" name="response" value ="<%=choice.name%>"><%=choice.name%></li>
     <% end %>
+    </form>
   </ul>
 <% end %>
