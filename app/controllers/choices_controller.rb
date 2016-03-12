@@ -1,15 +1,17 @@
 get '/choices/new' do
-  erb :'/choices/new'
+  @question = Question.new
+  erb :'/choices/new', layout:false
 end
 
 post '/choices' do
-  @choice = Choice.new(params[:choice])
+  @choice = Choice.new(name: params[:choice][:name], question_id: session[:question_id])
 
   if @choice.save
+     session[:choice_id] = @choice.id
       if request.xhr?
-        erb :'partial to append to survey/new '
+        erb :'choices/_choice_partial', layout: false, locals: {choice: @choice}
       else
-      redirect "/surveys/new"
+      redirect "/surveys"
       end
     else
       erb :"surveys/new"
