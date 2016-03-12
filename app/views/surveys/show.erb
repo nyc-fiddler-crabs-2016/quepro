@@ -1,11 +1,14 @@
+
 <h2><%= @survey.title %></h2>
-<% @survey.questions.each do |question| %>
+<form class = "complete-survey" method = "POST" action ="/surveys/<%=@survey.id%>/surveys_taken">
+<% @survey.questions.each_with_index do |question, index| %>
   <h4> <%= question.name %> </h4>
   <ul>
-    <form>
     <% question.choices.each do |choice| %>
-    <li><input type = "radio" name="response" value ="<%=choice.name%>"><%=choice.name%></li>
+    <li><input type = "radio" name="response[<%=question.id%>]" value ="<%=choice.id%>"><%=choice.name%></li>
     <% end %>
-    </form>
   </ul>
 <% end %>
+<input type = "submit" value="Submit Your Survey">
+</form>
+

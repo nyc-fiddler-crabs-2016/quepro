@@ -13,10 +13,13 @@ user_amount.times do
                 password:        'pw'
                 )
 end
+User.create(user_name: "will", password: "pw")
 
 # User.create(username: 'joe', password: 'pw')
 
 user_ids = User.all.map { |user| user.id }
+
+
 
 
 # Surveys

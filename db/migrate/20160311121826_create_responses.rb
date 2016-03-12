@@ -1,6 +1,6 @@
 class CreateResponses < ActiveRecord::Migration
   def change
-    create_table :response do |t|
+    create_table :responses do |t|
       t.references :user, index: true, null: false
       t.references :choice, index: true, null: false
       t.references :question , index: true, null: false
