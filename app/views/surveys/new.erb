@@ -1,0 +1,11 @@
+<div class="title-placeholder">
+  <%=erb :"/surveys/_title_partial" if @survey%>
+</div>
+
+<form class="title-form" method="POST" action="/surveys">
+  <input type="text" name="survey[title]" placeholder="name your survey">
+  <input type ="submit" value="submit">
+</form>
+
+
+

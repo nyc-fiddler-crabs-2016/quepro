@@ -9,15 +9,20 @@ end
 
 
 post '/surveys' do
-  @survey = Survey.new(params[:survey], user_id: current_user.id)
-
+  p "string"
+  @survey = Survey.new(params[:survey])
+  @survey.user_id = current_user.id
+  p "string here"
     if @survey.save
+      p "made it to survey .save"
       if request.xhr?
-        erb :'partial here '
+        p "this saved to the page"
+        erb :'surveys/_title_partial', layout: false, locals: {survey: @survey}
       else
       redirect "/surveys"
       end
     else
+      "this didnt not save"
       erb :"surveys/new"
     end
 end
