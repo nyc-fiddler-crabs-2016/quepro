@@ -1,19 +1,21 @@
 get '/questions/new' do
-  erb :'/questions/new'
+  @question = Question.new
+  erb :'/questions/new', layout: false
 end
 
 post '/questions' do
-  @question = Question.new(params[:question])
-
+  @question = Question.new(name: params[:question][:name], survey_id: session[:survey_id] )
   if @question.save
-      if request.xhr?
-        erb :'partial to append to survey/new '
-      else
-      redirect "/surveys/new"
-      end
+    session[:question_id] = @question.id
+    if request.xhr?
+      erb :'questions/_question_partial', layout: false, locals: {question: @question}
     else
-      erb :"surveys/new"
+      p "this was a bad xhr"
+      redirect "/surveys"
     end
+  else
+    erb :"surveys/new"
+  end
 end
 
 

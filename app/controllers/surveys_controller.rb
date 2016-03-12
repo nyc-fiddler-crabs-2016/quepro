@@ -14,6 +14,7 @@ post '/surveys' do
   @survey.user_id = current_user.id
   p "string here"
     if @survey.save
+    session[:survey_id] = @survey.id
       p "made it to survey .save"
       if request.xhr?
         p "this saved to the page"
