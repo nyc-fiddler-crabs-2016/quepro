@@ -5,7 +5,7 @@ questions_per_survey  = 3
 surveys_taken_amount  = 30
 choices_per_question  = 4
 
-responses_per_choice  = 10
+responses_per_choice  = 5
 
 
 # USERS

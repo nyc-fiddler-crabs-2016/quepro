@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
   def total_responses_to_question
     self.responses.count
   end
+
+  def highest_response
+    self.choices.max_by { |choice| choice.response_amount }.name
+  end
 end
