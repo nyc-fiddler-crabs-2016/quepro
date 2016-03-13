@@ -5,7 +5,9 @@ post '/surveys/:survey_id/surveys_taken' do
     else
       p @survey_taken.errors
     end
-      redirect "/surveys"
+      # redirect "/surveys"
+       @survey_taken = SurveysTaken.new(survey_id: params[:survey_id], user_id: current_user.id)
+      erb :'surveys/finished'
   else
     redirect '/login'
   end
