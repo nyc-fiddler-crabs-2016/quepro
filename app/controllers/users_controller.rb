@@ -11,7 +11,7 @@ post '/users' do
   if @user.save
     session[:user_id] = @user.id
 
-    redirect "/posts"
+    redirect "/"
   else
     # redirect'/errors=couldnt_create_login'
     # @errors = @entry.errors.full_messages

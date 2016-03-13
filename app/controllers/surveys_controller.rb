@@ -28,6 +28,10 @@ post '/surveys' do
     end
 end
 
+get '/surveys/stats/:id' do
+  @survey = Survey.find(params[:id])
+  erb :'surveys/stats'
+end
 
 get '/surveys/:id' do
   @survey = Survey.find_by(id: params[:id])

@@ -1,10 +1,11 @@
-user_amount           = 6
+user_amount           = 1
 survey_amount         = 40
-questions_per_survey  = 5
+questions_per_survey  = 3
 
-surveys_taken_amount  = 20
+surveys_taken_amount  = 30
 choices_per_question  = 4
-responses_per_choice  = 2
+
+responses_per_choice  = 10
 
 
 # USERS
@@ -24,6 +25,7 @@ user_ids = User.all.map { |user| user.id }
 
 # Surveys
 survey_amount.times do
+
   survey = Survey.create(title:     Faker::Hipster.sentence(2),
                          user_id:   user_ids.sample)
 
@@ -34,6 +36,12 @@ survey_amount.times do
       choices_per_question.times do
        choice = Choice.create(name:        Faker::Hipster.sentence,
                                question_id: question.id  )
+
+       rand(responses_per_choice).times do
+        Response.create(user_id: user_ids.sample,
+                        choice_id: choice.id,
+                        question_id: question.id)
+       end
 
     end
 
