@@ -1,4 +1,4 @@
-<form class="question-form" method="POST" action="/questions">
+<form class="question-form" method="POST" action="/surveys/<%= survey_id %>/questions">
   <input type="text" name="question[name]" placeholder="write question here">
   <input type ="submit" value="add question">
 </form>

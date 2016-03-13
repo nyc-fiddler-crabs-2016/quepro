@@ -1,5 +1,5 @@
 get '/surveys' do
-  @surveys = Survey.all
+  @surveys = Survey.published
   erb :'surveys/index'
 end
 
@@ -14,7 +14,6 @@ post '/surveys' do
   @survey.user_id = current_user.id
   p "string here"
     if @survey.save
-    session[:survey_id] = @survey.id
       p "made it to survey .save"
       if request.xhr?
         p "this saved to the page"
@@ -23,9 +22,15 @@ post '/surveys' do
       redirect "/surveys"
       end
     else
-      "this didnt not save"
-      erb :"surveys/new"
+      # errors = @survey.full_messages
+      erb :'empty', layout: false
     end
+end
+
+post '/surveys/:id/mark_complete' do
+  @survey = Survey.find(params[:id])
+  @survey.update_attributes(is_complete: true)
+  redirect "/"
 end
 
 get '/surveys/stats/:id' do

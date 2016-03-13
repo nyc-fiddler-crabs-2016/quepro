@@ -1,12 +1,11 @@
-get '/questions/new' do
+get '/surveys/:survey_id/questions/new' do
   @question = Question.new
-  erb :'/questions/new', layout: false
+  erb :'/questions/new', layout: false, locals: { survey_id: params[:survey_id] }
 end
 
-post '/questions' do
-  @question = Question.new(name: params[:question][:name], survey_id: session[:survey_id] )
+post '/surveys/:survey_id/questions' do
+  @question = Question.new(name: params[:question][:name], survey_id: params[:survey_id] )
   if @question.save
-    session[:question_id] = @question.id
     if request.xhr?
       erb :'questions/_question_partial', layout: false, locals: {question: @question}
     else
@@ -14,7 +13,7 @@ post '/questions' do
       redirect "/surveys"
     end
   else
-    erb :"surveys/new"
+    erb :'empty', layout: false
   end
 end
 

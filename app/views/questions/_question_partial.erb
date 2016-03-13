@@ -1,2 +1,11 @@
-<li><%=question.name%></li>
-<br>
+<li>
+  <%=question.name%>
+  <br>
+
+  <a class="add-choice-button" href="/questions/<%= question.id %>/choices/new">add choice</a>
+
+  <div class="choice-placeholder">
+    <%= erb :'choices/_choice_partial' if @choice %>
+  </div>
+</li>
+

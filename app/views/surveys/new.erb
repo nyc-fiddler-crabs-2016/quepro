@@ -11,15 +11,3 @@
   <%=erb :"surveys/_title_partial" if @survey%>
 </div>
 
-<a class="add-question-button" href="/questions/new">add question</a>
-
-<div class="question-placeholder">
-  <%= erb :'questions/_question_partial' if @question %>
-</div>
-
-<a class="add-choice-button" href="/choices/new">add choice</a>
-
-<div class="choice-placeholder">
-  <%= erb :'choices/_choice_partial' if @choice %>
-</div>
-
