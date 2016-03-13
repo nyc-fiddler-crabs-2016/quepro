@@ -1,0 +1,10 @@
+<h2><%= @survey.title %> | <%= @survey.total_responses_to_survey %> </h2>
+
+<% @survey.questions.each_with_index do |question, index| %>
+  <h4> <%= question.name %> | <%= question.total_responses_to_question %></h4>
+  <ul>
+    <% question.choices.each do |choice| %>
+    <li><%= choice.name%> | <%= choice.response_amount %></li>
+    <% end %>
+  </ul>
+<% end %>
