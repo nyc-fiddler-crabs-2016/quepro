@@ -16,7 +16,7 @@ user_amount.times do
 end
 User.create(user_name: "will", password: "pw")
 
-User.create(username: 'joe', password: 'pw')
+User.create(user_name: 'joe', password: 'pw')
 
 user_ids = User.all.map { |user| user.id }
 

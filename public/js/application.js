@@ -8,59 +8,71 @@ $(document).ready(function() {
       url: $(this).attr('action'),
       data: $(this).serialize()
     }).done(function(response){
-      $(".survey-placeholder").replaceWith(response);
+      if ($.trim(response).length > 0) {
+        $(".survey-placeholder").replaceWith(response);
+      } else {
+         $(".title-form").show();
+      }
     })
   })
 
-  $('.add-question-button').on('click', function(event){
+  $('body').on('click', '.add-question-button', function(event){
     event.preventDefault();
     $('.add-question-button').hide();
 
     $.ajax({
       type: 'GET',
-      url: '/questions/new'
+      url: event.target
     }).done(function(response){
       $(".question-placeholder").append(response);
-    })
+    });
+
+    return false;
   })
 
 
-  $('.question-placeholder').on('submit', '.question-form', function(event){
+  $('body').on('submit', '.question-form', function(event){
     event.preventDefault();
+    var $this = $(this);
+
     $.ajax({
       type: "POST",
       url: $(this).attr('action'),
       data: $(this).serialize()
     }).done(function(response){
-      $(".question-placeholder").append(response);
-      $('.question-form').trigger('reset');
-    })
+      $this.parent().append(response);
+      $this.trigger('reset');
+    });
   })
 
 
-  $('.add-choice-button').on('click', function(event){
+  $('body').on('click', '.add-choice-button', function(event){
     event.preventDefault();
-    $('.add-choice-button').hide();
+    var $this = $(this);
+    $this.hide();
 
     $.ajax({
       type: 'GET',
       url: event.target
     }).done(function(response){
       console.log(response)
-      $(".choice-placeholder").append(response);
+      $this.siblings(".choice-placeholder").append(response);
 
     })
   })
 
-  $('.choice-placeholder').on('submit', '.choice-form', function(event){
+  $('body').on('submit', '.choice-form', function(event){
     event.preventDefault();
+    var $this = $(this);
+
     $.ajax({
       type: "POST",
       url: $(this).attr('action'),
       data: $(this).serialize()
+
     }).done(function(response){
-      $(".choice-placeholder").append(response);
-      $('.choice-form').trigger('reset');
+      $this.parent().append(response);
+      $this.trigger('reset');
     })
   })
 
