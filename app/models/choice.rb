@@ -8,5 +8,9 @@ class Choice < ActiveRecord::Base
   def my_question
     self.question.id
   end
+
+  def response_amount
+    self.responses.count
+  end
 end
 

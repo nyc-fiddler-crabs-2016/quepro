@@ -5,4 +5,8 @@ class Question < ActiveRecord::Base
   belongs_to :survey
 
   validates :name, :survey, presence: true
+
+  def total_responses_to_question
+    self.responses.count
+  end
 end
