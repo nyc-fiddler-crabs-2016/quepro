@@ -1,12 +1,19 @@
-<h2><%= @survey.title %> | <%= @survey.total_responses_to_survey %> </h2>
+<h2 class="survey-profile-title"><%= @survey.title %><p class="survey-profile-total">Total responses: <%= @survey.total_responses_to_survey %></p></h2>
 
 <% @survey.questions.each_with_index do |question, index| %>
-  <h4> <%= question.name %> | <%= question.total_responses_to_question %></h4>
-    <p> Most popular response was:</p>
-    <p> <%= question.highest_response %></p>
-  <ul>
+  <h3 class="survey-profile-question"> <%= question.name %></h4>
+    <div class="question-popular">
+      <li class="most-popular">Most popular: </li>
+      <li class="survey-profile-most-popular"><%= question.highest_response %></li>
+  </div>
+  <br>
+  <ul class="survey-profile-questions-list">
     <% question.choices.each do |choice| %>
-    <li><%= choice.name%> | <%= choice.response_amount %></li>
+      <div class="survey-profile-question">
+        <li class="profile-choice-name"><%= choice.name %> </li>
+        <li class="profile-choice-count"><%= choice.response_amount %></li>
+      </div>
     <% end %>
   </ul>
+  <br>
 <% end %>
