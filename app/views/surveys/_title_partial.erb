@@ -1,11 +1,11 @@
-<h2><%= survey.title%></h2>
+<h2 class="title"><%= survey.title%></h2>
 <a class="add-question-button" href="/surveys/<%= survey.id %>/questions/new">add question</a>
 
 <div class="question-placeholder">
   <%= erb :'questions/_question_partial' if @question %>
 </div>
 
-<form action="/surveys/<%= survey.id %>/mark_complete" method="POST">
+<form class="publish-survey" action="/surveys/<%= survey.id %>/mark_complete" method="POST">
   <input type="submit" value="Publish the survey">
 </form>
 

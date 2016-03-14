@@ -20,11 +20,10 @@
   <div class="header">
     <% if logged_in? %>
         <ul>
-          <!--<li><a href="/users/< current_user.id %>">Profile</a></li> -->
-          <li class="name"><a href="/">HOME</a></li>
-          <li class="name"><a href="/users/<%= current_user.id %>"><%= current_user.user_name %></a></li>
-          <li><a class="btn" href="/logout">Logout</a></li>
-          <li class="name"><a href="/surveys/new">Create A Survey</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+          <li><a href="/logout">Logout</a></li>
+          <li><a href="/surveys/new">Create Survey</a></li>
         </ul>
       <% else %>
         <ul>
@@ -38,4 +37,6 @@
   <%= yield %>
 </main>
 </body>
+<footer class="site-footer">
+</footer>
 </html>

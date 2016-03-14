@@ -1,5 +1,5 @@
-<section>
-  <a href="/surveys/<%= survey.id %>" ><%= survey.title %></a>
+<section class="survey-index-item">
+  <a class="survey-title" href="/surveys/<%= survey.id %>" ><%= survey.title %></a>
   <p>
-  <a href="/users/<%= survey.user.id %> "><%= survey.user.user_name %> </a> | <%= survey.user.id %></p>
+  <a class="survey-user"href="/users/<%= survey.user.id %> ">by: <%= survey.user.user_name %> </a></p>
 </section>
