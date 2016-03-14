@@ -5,7 +5,7 @@ post '/surveys/:survey_id/surveys_taken' do
     else
       p @survey_taken.errors
     end
-      redirect "/surveys"
+      erb :'surveys/finish'
   else
     redirect '/login'
   end

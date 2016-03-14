@@ -221,3 +221,12 @@ section a {
   color: #5882FA;
 }
 
+
+.yo-mama {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  border: 5px solid lightgray;
+  text-align: center;
+  padding: 20px;
+}
